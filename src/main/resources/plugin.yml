@@ -1,0 +1,5 @@
+name: "JourneyMapBukkit"
+version: "1.0"
+author: "TeamJM"
+main: "info.journeymap.bukkit.JourneyMapBukkit"
+api-version: "1.14"
