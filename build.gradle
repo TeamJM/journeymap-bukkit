@@ -35,4 +35,4 @@ shadowJar {
     relocate 'kotlin', 'info.journeymap.shaded.kotlin'
 }
 
-defaultTasks "clean" "shadowJar"
+defaultTasks "clean", "shadowJar"
