@@ -1,0 +1,49 @@
+name: Master
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up Java
+        uses: actions/setup-java@v1.0.0
+
+        with:
+          version: 1.12
+
+      - name: Gradle Build
+        run: sh gradlew build
+
+      - name: Rename Artifacts
+        run: |
+          mv build/libs/*-SNAPSHOT.jar build/libs/journeymap-bukkit-slim.jar
+          mv build/libs/*-SNAPSHOT-all.jar build/libs/journeymap-bukkit.jar
+          mv build/libs/*-SNAPSHOT-sources.jar build/libs/journeymap-bukkit-sources.jar
+
+      - name: Upload artifact (Slim JAR)
+        uses: actions/upload-artifact@v1.0.0
+
+        with:
+          name: Slim JAR
+          path: build/libs/journeymap-bukkit-slim.jar
+
+      - name: Upload artifact (Production JAR)
+        uses: actions/upload-artifact@v1.0.0
+
+        with:
+          name: Production JAR
+          path: build/libs/journeymap-bukkit.jar
+
+      - name: Upload artifact (Sources JAR)
+        uses: actions/upload-artifact@v1.0.0
+
+        with:
+          name: Sources JAR
+          path: build/libs/journeymap-bukkit-sources.jar
