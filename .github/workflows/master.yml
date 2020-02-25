@@ -47,3 +47,6 @@ jobs:
         with:
           name: Sources JAR
           path: build/libs/journeymap-bukkit-sources.jar
+
+      - name: Gradle Publish
+        run: /bin/sh ./gradlew -Pjourneymap.user=${{ secrets.JOURNEYMAP_USER }} -Pjourneymap.password=${{ secrets.JOURNEYMAP_PASSWORD }} publish
