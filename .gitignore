@@ -100,3 +100,5 @@ fabric.properties
 
 .gradle/
 build/
+!gradle/*
+
