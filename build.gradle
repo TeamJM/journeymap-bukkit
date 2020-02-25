@@ -58,7 +58,7 @@ publishing {
                 password = project.findProperty("journeymap.password") ?: System.getenv("JOURNEYMAP_PASSWORD")
             }
 
-            version = project.release
+            version = project.version
         }
     }
 
