@@ -35,9 +35,9 @@ class PacketHandler(val plugin: JourneyMapBukkit) : PluginMessageListener {
     }
 
     fun sendPacket(player: Player, packetID: Byte, data: ByteArray, channel: String) {
-        val buffer = ByteBuffer.allocate(2 + data.size)
+        val buffer = ByteBuffer.allocate(44 + data.size)
 
-        buffer.put(packetID).put(data.size.toByte()).put(data)
+        buffer.put(packetID).put(42).put(data.size.toByte()).put(data)
         player.sendPluginMessage(this.plugin, channel, buffer.array())
     }
 }
