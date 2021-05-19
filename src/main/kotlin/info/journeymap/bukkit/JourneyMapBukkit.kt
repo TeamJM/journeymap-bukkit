@@ -1,11 +1,10 @@
 package info.journeymap.bukkit
 
-import info.journeymap.bukkit.network.PacketHandler
 import org.bukkit.plugin.java.JavaPlugin
 
-class JourneyMapBukkit : JavaPlugin() {
-    lateinit var packetHandler: PacketHandler
-    lateinit var eventHandler: EventHandler
+public class JourneyMapBukkit : JavaPlugin() {
+    internal lateinit var packetHandler: PacketHandler
+    internal lateinit var eventHandler: EventHandler
 
     override fun onEnable() {
         super.onEnable()

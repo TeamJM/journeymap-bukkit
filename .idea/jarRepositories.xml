@@ -21,5 +21,10 @@
       <option name="name" value="maven" />
       <option name="url" value="https://papermc.io/repo/repository/maven-public/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="KotlinX" />
+      <option name="name" value="KotlinX" />
+      <option name="url" value="https://dl.bintray.com/kotlin/kotlinx/" />
+    </remote-repository>
   </component>
 </project>

@@ -7,18 +7,18 @@ import org.bukkit.event.Listener
 import org.bukkit.event.player.PlayerChangedWorldEvent
 import org.bukkit.event.player.PlayerJoinEvent
 
-class EventHandler(val plugin: JourneyMapBukkit) : Listener {
+public class EventHandler(private val plugin: JourneyMapBukkit) : Listener {
     @EventHandler(priority = EventPriority.MONITOR)
-    fun onJoin(event: PlayerJoinEvent) {
+    public fun onJoin(event: PlayerJoinEvent) {
         getServer().scheduler.callSyncMethod(this.plugin) {
-            this.plugin.packetHandler.sendWorldId(event.player.world.uid.toString(), event.player)
+            this.plugin.packetHandler.sendWorldId(getPrimaryWorldId(), event.player)
         }
     }
 
     @EventHandler(priority = EventPriority.MONITOR)
-    fun onWorldChange(event: PlayerChangedWorldEvent) {
+    public fun onWorldChange(event: PlayerChangedWorldEvent) {
         getServer().scheduler.callSyncMethod(this.plugin) {
-            this.plugin.packetHandler.sendWorldId(event.player.world.uid.toString(), event.player)
+            this.plugin.packetHandler.sendWorldId(getPrimaryWorldId(), event.player)
         }
     }
 }
