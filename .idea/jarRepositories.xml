@@ -26,5 +26,10 @@
       <option name="name" value="KotlinX" />
       <option name="url" value="https://dl.bintray.com/kotlin/kotlinx/" />
     </remote-repository>
+    <remote-repository>
+      <option name="id" value="spigotmc-repo" />
+      <option name="name" value="spigotmc-repo" />
+      <option name="url" value="https://hub.spigotmc.org/nexus/content/repositories/snapshots/" />
+    </remote-repository>
   </component>
 </project>
