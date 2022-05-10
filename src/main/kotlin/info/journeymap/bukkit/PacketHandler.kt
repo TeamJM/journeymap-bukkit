@@ -28,6 +28,8 @@ public class PacketHandler(private val plugin: JourneyMapBukkit) : PluginMessage
     }
 
     public fun sendWorldId(worldID: String, player: Player) {
+        this.plugin.logger.info("Sending WorldId " + worldID + " to " + player.name)
+
         try {
             this.sendPacket(player, 0.toByte(), worldID.toByteArray(), WORLD_ID_CHANNEL)
         } catch (e: UnsupportedEncodingException) {
