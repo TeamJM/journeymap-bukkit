@@ -5,14 +5,14 @@ plugins {
     java
     `maven-publish`
 
-    kotlin("jvm") version "1.5.0"
+    kotlin("jvm") version "1.6.21"
 
-    id("com.github.johnrengelman.shadow") version "5.2.0"
-    id("io.gitlab.arturbosch.detekt") version "1.15.0"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
+    id("io.gitlab.arturbosch.detekt") version "1.20.0"
 }
 
 group = "info.journeymap.journeymap-bukkit"
-version = "1.0-SNAPSHOT"
+version = "1.1-SNAPSHOT"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
@@ -27,8 +27,8 @@ repositories {
     mavenCentral()
 
     maven {
-        name = "Paper"
-        url = uri("https://papermc.io/repo/repository/maven-public/")
+        name = "spigotmc-repo"
+        url = uri("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     }
 
     maven {
@@ -38,12 +38,12 @@ repositories {
 }
 
 dependencies {
-    detektPlugins(group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version = "1.15.0")
+    detektPlugins(group = "io.gitlab.arturbosch.detekt", name = "detekt-formatting", version = "1.20.0")
 
     implementation(group = "org.jetbrains.kotlin", name = "kotlin-stdlib-jdk8")
 
-    compileOnly(group = "org.bukkit", name = "bukkit", version = "1.14.4-R0.1-SNAPSHOT")
-    testImplementation(group = "junit", name = "junit", version = "4.12")
+    compileOnly(group = "org.spigotmc", name = "spigot-api", version = "1.18.2-R0.1-SNAPSHOT")
+    testImplementation(group = "junit", name = "junit", version = "5.5")
 }
 
 detekt {
