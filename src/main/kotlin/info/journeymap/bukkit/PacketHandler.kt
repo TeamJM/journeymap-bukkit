@@ -17,18 +17,17 @@ public class PacketHandler(private val plugin: JourneyMapBukkit) : PluginMessage
 
     override fun onPluginMessageReceived(channel: String, player: Player, message: ByteArray) {
         if (channel.lowercase() == WORLD_ID_CHANNEL) {
-            this.sendWorldId(getPrimaryWorldId(), player)
-        }
-    }
-
-    public fun broadcastWorldId(worldID: String) {
-        for (player: Player in getServer().onlinePlayers) {
-            this.sendWorldId(worldID, player)
+            val worldID = plugin.configuration.resolveWorldId(player.world.name)
+            if (worldID !== null) {
+                this.sendWorldId(worldID, player)
+            }
         }
     }
 
     public fun sendWorldId(worldID: String, player: Player) {
-        this.plugin.logger.info("Sending WorldId " + worldID + " to " + player.name)
+        if (plugin.configuration.doVerboseLogging()) {
+            this.plugin.logger.info("Sending WorldId '$worldID' to '${player.name}'")
+        }
 
         try {
             this.sendPacket(player, 0.toByte(), worldID.toByteArray(), WORLD_ID_CHANNEL)
