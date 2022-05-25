@@ -36,12 +36,14 @@ public class Configuration(private val plugin: JourneyMapBukkit) {
 
         // check for explicit WorldID
         val explicitWorldId = conf.getString("WorldID")
+
         if (explicitWorldId !== null) {
             return explicitWorldId
         }
 
         // check for id_from declaration
         val idFrom = conf.getString("id_from")
+
         if (idFrom !== null) {
             return try {
                 getWorldId(idFrom)
@@ -66,6 +68,7 @@ public class Configuration(private val plugin: JourneyMapBukkit) {
             }
 
             val idFrom = getWorlds().getString("$worldName.id_from")
+
             if (idFrom !== null) {
                 try {
                     getWorldId(idFrom)
@@ -87,6 +90,7 @@ public class Configuration(private val plugin: JourneyMapBukkit) {
 
         val legacyDataFolder = plugin.dataFolder.parentFile.resolve("JourneyMapServer")
         val files = legacyDataFolder.listFiles { _, name -> name.endsWith(".cfg") }
+
         if (files === null) {
             // legacy directory does not exist
             plugin.config.set(MIGRATION_KEY, true)

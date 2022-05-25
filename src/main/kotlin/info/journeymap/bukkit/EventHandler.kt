@@ -18,6 +18,7 @@ public class EventHandler(private val plugin: JourneyMapBukkit) : Listener {
     private fun sendWorldId(player: Player) {
         getServer().scheduler.callSyncMethod(this.plugin) {
             val worldID = plugin.configuration.resolveWorldId(player.world.name)
+
             if (worldID !== null) {
                 this.plugin.packetHandler.sendWorldId(worldID, player)
             }
