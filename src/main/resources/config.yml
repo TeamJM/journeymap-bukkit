@@ -1,0 +1,26 @@
+legacy_configuration_migrated: false
+
+# Whether extra information should be outputted to console (initial configuration print out and when packet sending happens)
+verbose_logging: false
+
+# By default all worlds use the ID of the primary world.
+# That is fine for regular servers with only a "single" world with the three (or less) connected dimensions.
+# If you have a more complicated setup (like a lobby world or some other extra worlds) you will want to
+# configure everything explicitly. Basically you want all worlds that share coordinates (overworld, nether, end)
+# to have the same ID and everything else should be separate. That ensures maps don't get overwritten and
+# features like sharing waypoints between dimensions work.
+worlds:
+#  world:
+#    id_from: world # Use own UID explicitly instead of the "primary" ID as that could be anything
+#  world_nether:
+#    id_from: world # Use UID of the connected overworld
+#  world_the_end:
+#    id_from: world # Use UID of the connected overworld
+#  world_lobby:
+#    id_from: world_lobby # Use own World ID explicitly instead of the "primary" ID as that could be anything
+#  world_legacy:
+#    WorldId: 55874116-2352-4ac6-a291-56b7cd15a877 # Overrides world ID with a custom ID - mainly useful if you had the legacy plugin
+#  world_legacy_nether:
+#    WorldId: 55874116-2352-4ac6-a291-56b7cd15a877 # pair legacy nether with legacy overworld
+#  world_disabled:
+#    UseWorldID: false # Do not send WorldId for this world - you probably don't want to use this if you installed this plugin
