@@ -2,7 +2,7 @@
 
 ~~This is a Spigot plugin which provides the server-side components for servers that wish to
 allow their users to use the [JourneyMap Forge mod](https://journeymap.info)~~.
-Currently only suitable for bungeecord style servers to keep maps uniques when on different server worlds.
+Currently only suitable for bungeecord style servers to keep maps unique when on different server worlds.
 
 ## Project State
 
